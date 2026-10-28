@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FoodFlow - Đặt món ngon, giao tận nơi. Có danh mục món chay và món mặn.">
+  <title>FoodFlow — Đặt món ngon, giao tận nơi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="announcement"><span>✦</span> Ưu đãi hôm nay: miễn phí giao hàng cho đơn từ 99.000đ <span>✦</span></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="FoodFlow trang chủ"><span class="brand-icon">🍜</span><span>Food<span>Flow</span><small>NGON MỖI NGÀY</small></span></a>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Mở menu">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a class="active" href="#home">Trang chủ</a>
+      <a href="#menu">Thực đơn</a>
+      <a href="#menu" data-category-link="vegetarian">Món chay 🌿</a>
+      <a href="#why-us">Về chúng tôi</a>
+    </nav>
+    <div class="header-actions">
+      <label class="header-search"><span>⌕</span><input id="headerSearch" type="search" placeholder="Tìm món ăn..." aria-label="Tìm món ăn"></label>
+      <button class="icon-button cart-button" id="cartButton" aria-label="Giỏ hàng">🛒<span id="cartCount" class="cart-count">0</span></button>
+      <button class="login-button" id="openAuth">♙ <span id="headerUser">Đăng nhập</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> MÓN NGON · GIAO TẬN NƠI</div>
+        <h1>Hôm nay ăn gì?<br><span>Để FoodFlow lo!</span></h1>
+        <p>Khám phá những món ngon hấp dẫn từ các nhà hàng quanh bạn. Đặt món dễ dàng, thưởng thức thật vui.</p>
+        <form class="hero-search" id="heroSearchForm">
+          <span>⌕</span><input id="heroSearch" type="search" placeholder="Bạn đang thèm món gì nhỉ?">
+          <button class="btn btn-primary" type="submit">Tìm món <span>→</span></button>
+        </form>
+        <div class="hero-perks"><span>✓ Đặt món dễ dàng</span><span>✓ Nhiều lựa chọn món chay</span><span>✓ Giá cả rõ ràng</span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-wrap"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1100&q=85" alt="Tô salad tươi ngon"></div>
+        <div class="floating-card floating-rating"><span class="rating-star">★</span><div><strong>4.9/5</strong><small>Khách hàng yêu thích</small></div></div>
+        <div class="floating-card floating-delivery"><span class="delivery-emoji">🛵</span><div><strong>Giao tận nơi</strong><small>Đặt nhanh trong vài bước</small></div></div>
+        <div class="hero-sticker">Tươi ngon<br><strong>mỗi ngày!</strong> ✨</div>
+      </div>
+      <div class="hero-decoration decor-one"></div><div class="hero-decoration decor-two"></div>
+    </section>
+
+    <section class="category-section section-wrap" aria-label="Danh mục món ăn">
+      <div class="section-heading compact-heading"><div><p class="eyebrow">KHÁM PHÁ HƯƠNG VỊ</p><h2>Chọn theo sở thích</h2></div><span class="muted">Tìm món hợp khẩu vị của bạn</span></div>
+      <div class="category-list" id="categoryList">
+        <button class="category-chip selected" data-category="all"><span class="category-icon">🍽️</span><strong>Tất cả</strong></button>
+        <button class="category-chip" data-category="savory"><span class="category-icon">🍗</span><strong>Món mặn</strong></button>
+        <button class="category-chip" data-category="vegetarian"><span class="category-icon">🌿</span><strong>Món chay</strong></button>
+        <button class="category-chip" data-category="noodle"><span class="category-icon">🍜</span><strong>Bún & mì</strong></button>
+        <button class="category-chip" data-category="rice"><span class="category-icon">🍚</span><strong>Cơm</strong></button>
+        <button class="category-chip" data-category="snack"><span class="category-icon">🍕</span><strong>Ăn vặt</strong></button>
+        <button class="category-chip" data-category="drink"><span class="category-icon">🧋</span><strong>Đồ uống</strong></button>
+      </div>
+    </section>
+
+    <section class="menu-section section-wrap" id="menu">
+      <div class="section-heading">
+        <div><p class="eyebrow">NGON KHÓ CƯỠNG</p><h2 id="menuTitle">Món ngon được yêu thích <span>✦</span></h2><p class="muted" id="menuSubtitle">Món ngon chọn lọc, sẵn sàng đến với bạn</p></div>
+        <div class="menu-controls"><label class="sort-select">Sắp xếp <select id="sortSelect"><option value="popular">Phổ biến</option><option value="low">Giá thấp đến cao</option><option value="high">Giá cao đến thấp</option></select></label></div>
+      </div>
+      <div class="filter-note hidden" id="filterNote"></div>
+      <div class="food-grid" id="foodGrid"></div>
+      <div class="empty-state hidden" id="emptyState"><span>🥢</span><h3>Chưa tìm thấy món phù hợp</h3><p>Thử từ khóa khác hoặc chọn danh mục khác nhé.</p><button class="btn btn-primary" id="resetFilters">Xem tất cả món</button></div>
+    </section>
+
+    <section class="vegetarian-banner section-wrap" id="vegetarianBanner">
+      <div class="veg-copy"><span class="veg-pill">🌿 SỐNG XANH, ĂN LÀNH</span><h2>Món chay thanh lành,<br>vị ngon trọn vẹn.</h2><p>Đổi vị nhẹ nhàng với những lựa chọn từ rau củ tươi, nấm và đạm thực vật.</p><button class="btn btn-light" id="exploreVeg">Khám phá món chay <span>→</span></button></div>
+      <div class="veg-art"><div class="veg-circle"></div><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=85" alt="Salad rau củ nhiều màu sắc"></div>
+      <span class="leaf leaf-a">✿</span><span class="leaf leaf-b">✦</span>
+    </section>
+
+    <section class="why-section section-wrap" id="why-us">
+      <div class="section-heading centered"><p class="eyebrow">VÌ SAO CHỌN FOODFLOW?</p><h2>Mỗi bữa ăn, thêm niềm vui</h2><p class="muted">Đặt món tiện lợi, lựa chọn đa dạng và trải nghiệm thân thiện.</p></div>
+      <div class="benefit-grid">
+        <article class="benefit-card"><span class="benefit-icon orange">⚡</span><h3>Đặt món thật nhanh</h3><p>Giao diện đơn giản giúp bạn tìm và chọn món chỉ trong vài thao tác.</p></article>
+        <article class="benefit-card"><span class="benefit-icon green">🌿</span><h3>Ưu tiên món chay</h3><p>Danh mục món chay riêng biệt, dễ tìm cho những ngày muốn ăn thanh đạm.</p></article>
+        <article class="benefit-card"><span class="benefit-icon purple">♡</span><h3>Lưu món yêu thích</h3><p>Lưu lại món bạn thích để dễ dàng tìm lại ở lần đặt tiếp theo.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-icon">🍜</span><span>Food<span>Flow</span><small>NGON MỖI NGÀY</small></span></a><p>Ngon miệng mỗi ngày, vui vẻ mỗi bữa ăn.</p><span class="footer-copy">© 2026 FoodFlow · Bản demo đồ án website</span></footer>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <!-- Authentication modal: đặt món yêu cầu đăng nhập -->
+  <div class="modal-backdrop hidden" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="auth-modal">
+      <button class="modal-close" id="closeAuth" aria-label="Đóng">×</button>
+      <div class="auth-intro"><div class="auth-logo">🍜</div><p class="eyebrow">CHÀO MỪNG ĐẾN VỚI FOODFLOW</p><h2 id="authTitle">Đăng nhập để đặt món</h2><p>Đăng nhập để thêm món vào giỏ và lưu lựa chọn yêu thích của bạn.</p><div class="auth-perk">🌿 <span>Có cả thực đơn món chay thanh lành</span></div></div>
+      <div class="auth-form-area">
+        <div class="auth-tabs"><button class="auth-tab active" data-auth-tab="login">Đăng nhập</button><button class="auth-tab" data-auth-tab="register">Tạo tài khoản</button></div>
+        <form id="loginForm" class="auth-form">
+          <label>Email<input name="email" type="email" placeholder="ban@example.com" required autocomplete="email"></label>
+          <label>Mật khẩu<input name="password" type="password" placeholder="Nhập mật khẩu" required minlength="6" autocomplete="current-password"></label>
+          <div class="form-row"><label class="remember"><input type="checkbox" name="remember"> Ghi nhớ trên thiết bị này</label><button type="button" class="text-button" id="forgotPassword">Quên mật khẩu?</button></div>
+          <button class="btn btn-primary btn-full" type="submit">Đăng nhập <span>→</span></button>
+          <p class="form-foot">Chưa có tài khoản? <button class="text-button" type="button" data-switch-auth="register">Đăng ký miễn phí</button></p>
+        </form>
+        <form id="registerForm" class="auth-form hidden">
+          <label>Họ và tên<input name="name" type="text" placeholder="Nguyễn Văn A" required minlength="2" autocomplete="name"></label>
+          <label>Email<input name="email" type="email" placeholder="ban@example.com" required autocomplete="email"></label>
+          <label>Mật khẩu<input name="password" type="password" placeholder="Ít nhất 6 ký tự" required minlength="6" autocomplete="new-password"></label>
+          <label>Nhập lại mật khẩu<input name="confirmPassword" type="password" placeholder="Nhập lại mật khẩu" required minlength="6" autocomplete="new-password"></label>
+          <label class="remember terms"><input type="checkbox" name="terms" required> Tôi đồng ý với điều khoản sử dụng.</label>
+          <button class="btn btn-primary btn-full" type="submit">Tạo tài khoản <span>→</span></button>
+          <p class="form-foot">Đã có tài khoản? <button class="text-button" type="button" data-switch-auth="login">Đăng nhập</button></p>
+        </form>
+        <p class="demo-note">Bản demo học tập: tài khoản được lưu trong trình duyệt hiện tại.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="cartModal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-modal">
+      <button class="modal-close" id="closeCart" aria-label="Đóng">×</button>
+      <div class="cart-head"><p class="eyebrow">BỮA NGON CỦA BẠN</p><h2 id="cartTitle">Giỏ hàng <span id="cartTitleCount">(0 món)</span></h2></div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-summary"><div><span>Tạm tính</span><strong id="cartSubtotal">0đ</strong></div><div><span>Phí giao hàng (demo)</span><strong id="deliveryFee">15.000đ</strong></div><div class="cart-total"><span>Tổng cộng</span><strong id="cartTotal">0đ</strong></div><button class="btn btn-primary btn-full" id="checkoutButton">Tiến hành đặt món <span>→</span></button><p class="cart-hint">Bạn cần đăng nhập để xác nhận đơn hàng.</p></div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
